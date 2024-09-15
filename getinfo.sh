@@ -115,7 +115,7 @@ hesaplar=$(/opt/zimbra/bin/zmprov -l gaa domian.com)
 echo "$hesaplar" | while read -r value; do
     echo "$value"
     
-    readarray -t GetData <<<$(/opt/zimbra/common/bin/ldapsearch -LLL -o ldif-wrap=no -b dc=domian,dc=local -D zimbra@domian.local -w Password_here -H ldap://10.34.5.100 "(mail=$value)")
+    readarray -t GetData <<<$(/opt/zimbra/common/bin/ldapsearch -LLL -o ldif-wrap=no -b dc=domian,dc=local -D zimbra@domian.local -w Password_here -H ldap://192.168.1.10 "(mail=$value)")
 
     for (( i=0; i<${#GetData[@]}; i++ )); do
 
